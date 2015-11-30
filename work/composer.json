@@ -24,6 +24,10 @@
   },
   "minimum-stability": "dev",
   "repositories": {
+    "satooshi/php-coveralls": {
+      "type": "vcs",
+      "url": "https://github.com/flancer64/php-coveralls"
+    },
     "praxigento/mage_ext_logging": {
       "type": "vcs",
       "url": "https://github.com/praxigento/mage_ext_logging"
