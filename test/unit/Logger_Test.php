@@ -26,7 +26,7 @@ class Call_ManualTest extends \PHPUnit_Framework_TestCase {
         $this->assertFalse($logMage->isMonologLogger());
     }
 
-    public function test_methods() {
+    public function test_methods_Monolog() {
         $log = new Logger();
         $context = [ 'test' => true, 'env' => [ 'param1' => 'value1' ] ];
         $log->debug('debug', $context);
@@ -39,9 +39,42 @@ class Call_ManualTest extends \PHPUnit_Framework_TestCase {
         $log->emergency('emergency', $context);
     }
 
-    public function test_instance() {
-
+    public function test_initLoggerCascade_absolutePath() {
+        $CONFIG_FILE_NAME = __DIR__ . '/logging.yaml';
+        $LOGGER_NAME = 'defaultLoggerName';
+        /**
+         * Perform testing.
+         */
+        $logger = new Logger($CONFIG_FILE_NAME, $LOGGER_NAME);
+        $this->assertTrue($logger instanceof \Praxigento\Logging\Logger);
     }
 
+    public function test_constructor_exception() {
+        $CONFIG_FILE_NAME = __DIR__ . '/logging_exception.yaml';
+        $LOGGER_NAME = 'defaultLoggerName';
+        /**
+         * Perform testing.
+         */
+        $logger = new Logger($CONFIG_FILE_NAME, $LOGGER_NAME);
+        $this->assertTrue($logger instanceof \Praxigento\Logging\Logger);
+    }
+
+    public function test_methods_Magento() {
+        $CONFIG_FILE_NAME = __DIR__ . '/logging_exception.yaml';
+        $LOGGER_NAME = 'defaultLoggerName';
+        /**
+         * Perform testing.
+         */
+        $log = new Logger($CONFIG_FILE_NAME, $LOGGER_NAME);
+        $context = [ 'test' => true, 'env' => [ 'param1' => 'value1' ] ];
+        $log->debug('debug', $context);
+        $log->info('info', $context);
+        $log->notice('notice', $context);
+        $log->warning('warning', $context);
+        $log->error('error', $context);
+        $log->alert('alert', $context);
+        $log->critical('critical', $context);
+        $log->emergency('emergency', $context);
+    }
 
 }

@@ -84,8 +84,6 @@ class Logger implements LoggerInterface {
     }
 
     /**
-     * This is a dirty trick to get Filesystem component that can be mocked in tests.
-     *
      * @return \Symfony\Component\Filesystem\Filesystem
      */
     public function getFilesystem() {
@@ -93,15 +91,6 @@ class Logger implements LoggerInterface {
             self::$_fs = new \Symfony\Component\Filesystem\Filesystem();
         }
         return self::$_fs;
-    }
-
-    /**
-     * This is a dirty trick to set Filesystem component that is mocked in tests.
-     *
-     * @param \Symfony\Component\Filesystem\Filesystem $fs
-     */
-    public function setFilesystem($fs) {
-        self::$_fs = $fs;
     }
 
     /**
@@ -132,6 +121,7 @@ class Logger implements LoggerInterface {
         } catch
         (\Exception $e) {
             $err = $e->getMessage();
+            $err .= " Default Magento logger is used.";
         } finally {
             if(!$this->_isMonologUsed) {
                 $this->_initLoggerMagento();
