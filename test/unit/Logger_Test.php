@@ -2,7 +2,7 @@
 /**
  * User: Alex Gusev <alex@flancer64.com>
  */
-namespace Praxigento\Logger;
+namespace Praxigento\Logging;
 
 include_once(__DIR__ . '/phpunit_bootstrap.php');
 
