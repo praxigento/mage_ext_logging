@@ -1,0 +1,7 @@
+# script ./vendor/bin/coveralls is started from ./work/ directory, all paths are related to ./work/
+coverage_clover: build/logs/clover.xml
+# sources are in Github repo
+src_dir: ../src/
+# but PHPUnit sources are in ./vendor/... folder
+src_dir_prefix: vendor/praxigento/mage_ext_logging/
+# commit to test code coverage
