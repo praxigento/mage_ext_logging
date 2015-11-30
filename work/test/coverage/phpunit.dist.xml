@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="true"
+         bootstrap="./phpunit_bootstrap.php">
+    <testsuite name="Praxigento_Logging Coverage Test">
+        <directory suffix="_Test.php">../../vendor/praxigento/mage_ext_logging/test/unit</directory>
+    </testsuite>
+    <filter>
+        <whitelist
+                processUncoveredFilesFromWhitelist="false"
+                addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../../vendor/praxigento/mage_ext_logging/src</directory>
+            <exclude>
+                <file>../../vendor/praxigento/mage_ext_logging/src/registration.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="../../build/coverage" lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="../../build/logs/clover.xml"/>
+    </logging>
+</phpunit>

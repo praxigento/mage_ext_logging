@@ -1,0 +1,33 @@
+sudo: false # use container-based environment on Travis
+language: php
+php:
+  - 5.6
+  - hhvm
+#  - '7'
+
+before_install:
+  - cp templates.vars.json.travis templates.vars.work.json # create configuration for Travis from template
+  - cd work # go to root folder for development environment
+  - pwd # control current path ('LOCAL_ROOT' in templates.json)
+  - composer self-update  # update composer to prevent error Class 'Composer\Installer\PackageEvents' not found in
+#   .../work/vendor/aydin-hassan/magento-core-composer-installer/src/CoreManager.php on line 109
+  - composer install  # install project using PHP Composer
+  - cat ./bin/post_install.sh  # control parameters in the installation script
+  - cat ./bin/setup.sql # control parameters in the SQL script
+  - sh ./bin/post_install.sh # create initial DB, run SQL script, setup permissions, ...
+
+script:
+  - phpunit --configuration ./test/coverage/phpunit.dist.xml  # run project's unit tests
+
+after_script:
+  - php ./vendor/bin/coveralls -v # configuration file is 'work/.coveralls.yml'
+  - cat ./build/logs/clover.xml
+  - cat ./build/logs/coveralls-upload.json
+
+notifications:
+  email:
+    recipients:
+      - alex@nmmlm.com
+      - support@praxigento.com
+    on_success: always # [always|never|change], default: change
+    on_failure: always # [always|never|change], default: change
