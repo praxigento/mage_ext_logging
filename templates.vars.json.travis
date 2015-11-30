@@ -1,0 +1,30 @@
+{
+  "vars": {
+    "LOCAL_ROOT": "/home/travis/build/praxigento/mage_ext_logging/work",
+    "DEPLOYMENT_TYPE": "test",
+    "LOCAL_OWNER": "travis",
+    "LOCAL_GROUP": "www-data",
+    "CFG_LOCALE": "en_US",
+    "CFG_TIMEZONE": "UTC",
+    "CFG_DEFAULT_CURRENCY": "EUR",
+    "CFG_DB_HOST": "localhost",
+    "CFG_DB_NAME": "mobi1",
+    "CFG_DB_USER": "travis",
+    "CFG_DB_PASS": "skip_password",
+    "CFG_DB_PREFIX": "m1_",
+    "CFG_SESSION_SAVE": "db",
+    "CFG_ADMIN_FRONTNAME": "admin",
+    "CFG_URL": "http://mobi1.travis.prxgt.com/",
+    "CFG_SKIP_URL_VALIDATION": "yes",
+    "CFG_USE_REWRITES": "yes",
+    "CFG_USE_SECURE": "no",
+    "CFG_SECURE_BASE_URL": "http://mobi1.travis.prxgt.com/",
+    "CFG_USE_SECURE_ADMIN": "no",
+    "CFG_ENABLE_CHARTS": "yes",
+    "CFG_ADMIN_LASTNAME": "Admin",
+    "CFG_ADMIN_FIRSTNAME": "Store",
+    "CFG_ADMIN_EMAIL": "admin@store.com",
+    "CFG_ADMIN_USERNAME": "admin",
+    "CFG_ADMIN_PASSWORD": "YQ1ndJSVYw8RRBOeD9sE"
+  }
+}

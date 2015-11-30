@@ -1,0 +1,53 @@
+{
+  "name": "praxigento/mage_ext_logging_work",
+  "description": "Development environment for Monolog Cascade integration to Magento 1.",
+  "type": "project",
+  "homepage": "https://github.com/praxigento/mage_ext_logging",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alex Gusev",
+      "email": "alex@flancer64.com"
+    }
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "magento-hackathon/magento-composer-installer": "3.0.5",
+    "aydin-hassan/magento-core-composer-installer": "*",
+    "praxigento/composer_plugin_templates": "^1.0",
+    "magento/core": "^1.9",
+    "praxigento/mage_ext_logging": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4",
+    "phpunit/php-code-coverage": "^2"
+  },
+  "minimum-stability": "dev",
+  "repositories": {
+    "praxigento/mage_ext_logging": {
+      "type": "vcs",
+      "url": "https://github.com/praxigento/mage_ext_logging"
+    }
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "# Create root directory for the development Magento instance.",
+      "mkdir -p htdocs"
+    ],
+    "post-install-cmd": [
+      "# To complete installation launch 'sh ./bin/post_install.sh'",
+      "# To clean up Magento files launch 'sh ./bin/clean.sh'",
+      "# To start integration tests launch './vendor/bin/phpunit -c ./test/integration/phpunit.dist.xml'"
+    ]
+  },
+  "extra": {
+    "magento-root-dir": "htdocs",
+    "magento-force": true,
+    "magento-deploystrategy": "copy",
+    "auto-append-gitignore": false,
+    "praxigento_templates_config": [
+      "./templates.cfg.json",
+      "../templates.vars.work.json"
+    ]
+  }
+}

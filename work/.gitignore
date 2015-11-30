@@ -1,0 +1,5 @@
+/bin/
+/build/
+/htdocs/
+/composer.lock
+/vendor/
