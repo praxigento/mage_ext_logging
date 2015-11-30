@@ -4,7 +4,7 @@
  * User: Alex Gusev <alex@flancer64.com>
  */
 
-namespace Praxigento\Logger;
+namespace Praxigento\Logging;
 
 use Cascade\Cascade;
 use Monolog\Logger as Monolog;
